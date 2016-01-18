@@ -4,108 +4,109 @@ block content
 
   h1 Edit Restaurant
   br
-  h2 Name
-  br
-  input.form-control(type="text" id="name" value= restaurant.name name="name")
-  br
-  h2 Location
-  br
-  input.form-control(type="text" id="city" value= restaurant.city  name="city")
-  br
-  .form-group
-    label(for="state") State
-    select.form-control(id="state" name="state" value= restaurant.state)
-      option AK
-      option AL
-      option AZ
-      option AR
-      option CA
-      option CO
-      option CT
-      option DE
-      option FL
-      option GA
-      option HI
-      option ID
-      option IL
-      option IN
-      option IA
-      option KS
-      option KY
-      option LA
-      option ME
-      option MD
-      option MA
-      option MI
-      option MN
-      option MS
-      option MO
-      option MT
-      option NE
-      option NV
-      option NH
-      option NJ
-      option NM
-      option NY
-      option NC
-      option ND
-      option OH
-      option OK
-      option OR
-      option PA
-      option RI
-      option SC
-      option SD
-      option TN
-      option TX
-      option UT
-      option VT
-      option VA
-      option WA
-      option WV
-      option WI
-      option WY
-  br    
-  h2 Cuisine
-  br
-  .form-group
-  label(for="cuisine") Cuisine
-    select.form-control(id="cuisine" name="cuisine" value= restaurant.cuisine)
-      option American
-      option French
-      option Mexican
-      option Italian
-      option Asian
-      option Thai
-      option Vietnamese
-      option BBQ
-  .form-group
-  label(for="rating") Rating
-  .radio
-    label
-      '0'
-      input(type="radio" name="rating" value="0")
-      '1'
-      input(type="radio" name="rating" value="1")
-      '2'
-      input(type="radio" name="rating" value="2")
-      '3'
-      input(type="radio" name="rating" value="3")
-      '4'
-      input(type="radio" name="rating" value="4")
-      '5'
-      input(type="radio" name="rating" value="5")
-      br
-  label(for="image_path") Image
-  br
-  input.form-control(type="text" id="image_path" value= restaurant.image_path name="image_path")
-  br
-  input.form-control(type="text" id="description" placeholder= restaurant.description name="description") 
-  br
-  button.btn.btn-primary(type="submit") Submit
-  //-???? what controls button and what btn-... should we use?  default, primary?
-  //- br
-  //- button.btn.btn-primary(type="submit") Cancel
-  
-  
-  
+  form(action="/restaurants/#{restaurant.id}" method="post")
+    h2 Name
+    br
+    input.form-control(type="text" id="name" value= restaurant.name name="name")
+    br
+    h2 Location
+    br
+    input.form-control(type="text" id="city" value= restaurant.city  name="city")
+    br
+    .form-group
+      label(for="state") State
+      select.form-control(id="state" name="state" value= restaurant.state)
+        option AK
+        option AL
+        option AZ
+        option AR
+        option CA
+        option CO
+        option CT
+        option DE
+        option FL
+        option GA
+        option HI
+        option ID
+        option IL
+        option IN
+        option IA
+        option KS
+        option KY
+        option LA
+        option ME
+        option MD
+        option MA
+        option MI
+        option MN
+        option MS
+        option MO
+        option MT
+        option NE
+        option NV
+        option NH
+        option NJ
+        option NM
+        option NY
+        option NC
+        option ND
+        option OH
+        option OK
+        option OR
+        option PA
+        option RI
+        option SC
+        option SD
+        option TN
+        option TX
+        option UT
+        option VT
+        option VA
+        option WA
+        option WV
+        option WI
+        option WY
+    br    
+    h2 Cuisine
+    br
+    .form-group
+    label(for="cuisine") Cuisine
+      select.form-control(id="cuisine" name="cuisine" value= restaurant.cuisine)
+        option American
+        option French
+        option Mexican
+        option Italian
+        option Asian
+        option Thai
+        option Vietnamese
+        option BBQ
+    .form-group
+    label(for="rating") Rating
+    .radio
+      label
+        '0'
+        input(type="radio" name="rating" value="0")
+        '1'
+        input(type="radio" name="rating" value="1")
+        '2'
+        input(type="radio" name="rating" value="2")
+        '3'
+        input(type="radio" name="rating" value="3")
+        '4'
+        input(type="radio" name="rating" value="4")
+        '5'
+        input(type="radio" name="rating" value="5")
+        br
+    label(for="image_path") Image
+    br
+    input.form-control(type="text" id="image_path" value= restaurant.image_path name="image_path")
+    br
+    input.form-control(type="text" id="description" placeholder= restaurant.description name="description") 
+    br
+    button.btn.btn-primary(type="submit") Submit
+    //-???? what controls button and what btn-... should we use?  default, primary?
+    //- br
+    //- button.btn.btn-primary(type="submit") Cancel
+    
+    
+    
