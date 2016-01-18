@@ -1,0 +1,22 @@
+extends ../layout 
+
+block content
+  h1= restaurant.name
+  img= restaurant.image_path
+  h1 #{restaurant.cuisine} Cuisine
+  h1 Located in #{restaurant.city}, #{restaurant.state}
+  br
+  p #{restaurant.description}
+  br 
+  h1 Rating: #{restaurant.rating} / 5 stars
+  
+  // - need the edit and the delete button.
+  form(action="/restaurants/#{restaurant.id}/edit" method="get")
+    button.btn.btn-primary(type="submit") Edit
+  //- a(href="/restaurants/#{restaurant.id}/edit") Edit Restaurant
+  br
+  form(action="/restaurants/#{restaurant.id}/delete" method="post")
+    button.btn.btn-primary(type="submit") Delete
+  //- a(href="/restaurants/#{restaurant.id}/delete") Delete
+      
+  
