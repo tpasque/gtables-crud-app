@@ -54,8 +54,6 @@ router.get('/restaurants/:id', function (req, res, next) {
 // need to have redirect and post after the update / edit.
 
 router.post('/restaurants/:id', function (req, res, next) {
-  console.log("***********")
-  console.log(req.body)
       //  grab the id using req.params.id
       //  find the restaurant in the db using the id
       //  update the object by calling the update function and passing in req.body
