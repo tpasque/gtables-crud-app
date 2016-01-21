@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var knex = require('knex')({
-  client: 'pg',
-  connection: 'postgres://localhost/restaurantsdb',
-});
+// var knex = require('knex')({
+//   client: 'pg',
+//   connection: 'postgres://localhost/restaurantsdb',
+// });
+
+var knex = require('../db/knex')
 
 function Restaurants(){
   return knex('restaurants');

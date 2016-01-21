@@ -1,7 +1,7 @@
 #Create a Restaurant Listing!
 
 You're going to create your first project using all the skills you learned this week and from previous weeks!
-*All Images are provided for you in the images folder! Feel free to use your own tho!* 
+*All Images are provided for you in the images folder! Feel free to use your own tho!*
 
 ##1. Wire it Up!
 Get an express app wired up and ready

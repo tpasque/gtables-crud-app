@@ -15,7 +15,7 @@ block content
     br
     .form-group
       label(for="state") State
-      select.form-control(id="state" name="state" value= restaurant.state)
+      select.form-control(id="state" name="state" value.option= restaurant.state)
         option AK
         option AL
         option AZ
@@ -71,7 +71,7 @@ block content
     br
     .form-group
     label(for="cuisine") Cuisine
-      select.form-control(id="cuisine" name="cuisine" value= restaurant.cuisine)
+      select.form-control(id="cuisine" name="cuisine" value.option= restaurant.cuisine)
         option American
         option French
         option Mexican
@@ -101,7 +101,7 @@ block content
     br
     input.form-control(type="text" id="image_path" value= restaurant.image_path name="image_path")
     br
-    input.form-control(type="text" id="description" placeholder= restaurant.description name="description") 
+    input.form-control(type="text" id="description" value= restaurant.description name="description") 
     br
     button.btn.btn-primary(type="submit") Submit
     //-???? what controls button and what btn-... should we use?  default, primary?
