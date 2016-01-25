@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+
+  h1 Edit Employee: #{employee.first_name} #{employee.last_name}
+  br
+  form(action="/employees/#{employee.id}" method="post")
+    .form-group
+      label(for="first_name") First Name
+      br
+      input.form-control(type="text" id="first_name" value= employee.first_name name="first_name")
+      br
+      label(for="first_name") Last Name
+      br
+      input.form-control(type="text" id="last_name" value= employee.last_name name="last_name")
+      br
+      label(for="first_name") Position
+      br
+      input.form-control(type="text" id="position" value= employee.position name="position")
+      br
+      label(for="restaurant_id") Restaurant ID
+      br
+      input.form-control(type="text" id="restaurant_id" value= employee.restaurant_id name="restaurant_id")
+      br
+      button.btn.btn-primary(type="submit") Submit Employee Edit

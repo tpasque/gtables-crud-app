@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  a(href="/admin") Admin
+  h1 gTables employees show page
+  h2= employee.first_name+" "+employee.last_name
+  h2= employee.position
+  
+  form(action="/employees/#{employee.id}/edit" method="get")
+    button.btn.btn-primary(type="submit") Edit Employee Profile
+  br
+  form(action="/employees/#{employee.id}/delete" method="post")
+    button.btn.btn-primary(type="submit") Delete Employee
+  
+// -GOAL on this page.  Add restaurant name.  Need to include Restaurants() in route 
+  

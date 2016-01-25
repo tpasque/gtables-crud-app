@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+  h1 gTables employees
+  div
+  a(href="/employees/new") Add Employee to Restaurant
+  
+  table 
+    thead 
+      tr
+        th id
+        th first name
+        th last name
+        th position
+        th restaurant id
+    tbody 
+    for employee in employees
+      tr 
+        td= employee.id
+        td: a(href='#')= employee.first_name
+        td= employee.last_name
+        td= employee.position
+        td= employee.restaurant_id
+        

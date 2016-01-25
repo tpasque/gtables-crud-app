@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+  a(href="/admin") Admin
+  h1 Admin View: Add New Employee to Restaurant
+  form(action="/employees" method="post")
+    div.form-group
+      label(for="first_name") First Name
+      br
+      input.form-control(type="text" id="first_name" placeholder="First Name" name="first_name")
+      br
+      label(for="last_name") Last Name
+      br
+      input.form-control(type="text" id="last_name" placeholder="Last Name" name="last_name")
+      br
+      label(for="position") Position
+      br
+      input.form-control(type="text" id="position" placeholder="Employee Position" name="position")
+      br
+      label(for="restaurant_id") Restaurant ID
+      br
+      input.form-control(type="text" id="restaurant_id" placeholder="Restaurant_id" name="restaurant_id")
+      br
+    button.btn.btn-primary(type="submit") Submit

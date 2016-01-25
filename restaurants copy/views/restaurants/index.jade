@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+  h1 gTables
+  div
+  a(href="/restaurants/new") New Restaurant
+  
+  table 
+    thead 
+      tr
+        th id
+        th name
+        th city
+        th state
+        th cuisine
+        th rating
+        th url
+        th bio
+    tbody 
+    for restaurant in restaurants
+      tr 
+        td= restaurant.id
+        td: a(href='/restaurants/#{restaurant.id}')= restaurant.name
+        td= restaurant.city
+        td= restaurant.state
+        td= restaurant.cuisine
+        td= restaurant.rating
+        td= restaurant.image_path
+        td= restaurant.description
+            
+  

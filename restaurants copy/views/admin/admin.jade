@@ -1,0 +1,55 @@
+extends ../layout
+
+block content
+  h1 Admin Page
+  div
+  a(href="/restaurants/new") New Restaurant
+  
+  table 
+    thead 
+      tr
+        th id
+        th name
+        th city
+        th state
+        th cuisine
+        th rating
+        th url
+        th bio
+    tbody 
+    for restaurant in restaurants
+      tr 
+        td= restaurant.id
+        td: a(href='/restaurants/#{restaurant.id}')= restaurant.name
+        td= restaurant.city
+        td= restaurant.state
+        td= restaurant.cuisine
+        td= restaurant.rating
+        td= restaurant.image_path
+        td= restaurant.description
+        
+  h1 gTables employees
+  div
+  a(href="/employees/new") Add Employee to Restaurant
+  
+  table 
+    thead 
+      tr
+        th id
+        th first name
+        th last name
+        th position
+        th restaurant id
+    tbody 
+    for employee in employees
+      tr 
+        td= employee.id
+        td: a(href='/employees/#{employee.id}')= employee.first_name
+        td= employee.last_name
+        td= employee.position
+        td= employee.restaurant_id
+
+  
+  
+        
+  

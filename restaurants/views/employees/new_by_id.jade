@@ -1,0 +1,26 @@
+extends ../layout
+
+//this page is for the individual view of one restaurant and their employees, vs the "new.jade" in the employees
+//directory is for adding a new employee to any company from the admin page.  
+block content
+  a(href="/admin") Admin
+  h1 Add New Employee to #{restaurants.name}
+  form(action="/restaurants/#{restaurants.id}/employees" method="post")
+    div.form-group
+      label(for="first_name") First Name
+      br
+      input.form-control(type="text" id="first_name" placeholder="First Name" name="first_name")
+      br
+      label(for="last_name") Last Name
+      br
+      input.form-control(type="text" id="last_name" placeholder="Last Name" name="last_name")
+      br
+      label(for="position") Position
+      br
+      input.form-control(type="text" id="position" placeholder="Employee Position" name="position")
+      br
+      label(for="restaurant_id") Restaurant ID
+      br
+      input.form-control(type="text" id="restaurant_id" value="#{restaurants.id}" name="restaurant_id")
+      br
+    button.btn.btn-primary(type="submit") Submit
