@@ -11,6 +11,10 @@ function Restaurants(){
   return knex('restaurants');
 };
 
+function Employees() {
+  return knex('employees');
+};
+
 // var states = ["AK", "AL", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID",
 //     "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT",
 //     "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
@@ -30,21 +34,24 @@ router.get('/restaurants/new', function (req, res, next) {
 })
 
 
-router.post('/restaurants', function (req, res, next) {
+router.post('/admin', function (req, res, next) {
   Restaurants().insert(req.body).then(function (result) {
-    res.redirect('/restaurants')
+    res.redirect('/admin')
   })
 })
 
-/*Render show page based on unique id*/
+// Render show page based on unique id
+// Include nested employees to display employees that work at this restaurant
+// is this the right way to write the routes?
+// should it be /restaurants/:id/employees in the route?
 router.get('/restaurants/:id', function (req, res, next) {
-  Restaurants().where('id', req.params.id).first().then(function(result) {
-    res.render('restaurants/show', {restaurant: result })
+  my_id = req.params.id
+  Restaurants().where('id', my_id).first().then(function(restaurant) {
+    Employees().where('restaurant_id', my_id).then(function (employees) {
+    res.render('restaurants/show', {restaurant: restaurant, employees: employees})
+    })
   })
-  // grab the id from the url √
-  // find that object in the database using the id √
-  // render the show page √
-  // give the resulting object to your jade view using locals
+})
 
 // render the edit page
 
@@ -70,7 +77,7 @@ router.post('/restaurants/:id', function (req, res, next) {
       res.redirect('/restaurants')
     })
   })
-})
+
 
 
 module.exports = router;

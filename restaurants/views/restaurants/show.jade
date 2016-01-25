@@ -1,22 +1,45 @@
 extends ../layout 
 
 block content
+  a(href="/admin") Admin Page
   h1= restaurant.name
   img= restaurant.image_path
-  h1 #{restaurant.cuisine} Cuisine
-  h1 Located in #{restaurant.city}, #{restaurant.state}
+  h2 #{restaurant.cuisine} Cuisine
+  h2 Located in #{restaurant.city}, #{restaurant.state}
   br
-  p #{restaurant.description}
+  h3 #{restaurant.description} 
   br 
-  h1 Rating: #{restaurant.rating} / 5 stars
-  
+  h2 Rating: #{restaurant.rating} / 5 stars
+  br
   // - need the edit and the delete button.
   form(action="/restaurants/#{restaurant.id}/edit" method="get")
-    button.btn.btn-primary(type="submit") Edit
-  //- a(href="/restaurants/#{restaurant.id}/edit") Edit Restaurant
+    button.btn.btn-primary(type="submit") Edit #{restaurant.name}
   br
   form(action="/restaurants/#{restaurant.id}/delete" method="post")
-    button.btn.btn-primary(type="submit") Delete
-  //- a(href="/restaurants/#{restaurant.id}/delete") Delete
+    button.btn.btn-primary(type="submit") Delete #{restaurant.name}
+  br
+  h2 Employees that work at #{restaurant.name}
+  br
+  a(href="/restaurants/#{restaurant.id}/employees/new") Add Employee to #{restaurant.name}
+  br
+  table 
+    thead 
+      tr
+        th id
+        th first name
+        th last name
+        th position
+        th restaurant id
+    tbody 
+    for employee in employees
+      tr 
+        td= employee.id
+        td: a(href='/employees/#{employee.id}')= employee.first_name
+        td= employee.last_name
+        td= employee.position
+        td= employee.restaurant_id 
+  
+
+  
       
   

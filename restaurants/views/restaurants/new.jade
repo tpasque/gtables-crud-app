@@ -3,8 +3,9 @@ extends ../layout
 block content
 
   div.container
+    a(href="/admin") Admin Page
     h1 Add a New Restaurant
-    form(action="/restaurants" method="post")
+    form(action="/admin" method="post")
       div.form-group
         label(for="name") Name
         br
