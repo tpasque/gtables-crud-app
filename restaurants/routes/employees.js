@@ -1,9 +1,5 @@
 var express = require('express');
 var router = express.Router();
-// var knex = require('knex')({
-//   client: 'pg',
-//   connection: 'postgres://localhost/restaurantsdb'
-// });
 
 var knex = require('../db/knex');
 
@@ -14,6 +10,11 @@ function Employees() {
 function Restaurants(){
   return knex('restaurants');
 };
+
+function Reservations(){
+  return knex('reservations');
+};
+
 
 router.get('/employees', function(req, res, next){
   Employees().select().then(function(result){
