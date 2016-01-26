@@ -76,16 +76,6 @@ router.post('/employees/:id/delete', function (req, res, next) {
   })
 })
 
-
-
-router.get('/admin', function (req, res, next) {
-  Restaurants().select().then(function (restaurants) {
-    Employees().select().then(function (employees) {
-      res.render('admin/admin', {restaurants: restaurants, employees: employees})
-    })
-  })
-})
-
 // show page - profile page for employee
 router.get('/employees/:id', function (req, res, next) {
   my_id = req.params.id
